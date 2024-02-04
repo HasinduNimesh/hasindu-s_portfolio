@@ -25,7 +25,7 @@ html::-webkit-scrollbar-track {
 }
 
 html::-webkit-scrollbar-thumb {
-  background: #4b2c2c;
+  background: #274e36;
   border-radius: 5rem;
 }
 
@@ -97,11 +97,11 @@ section {
 .navbar a {
   padding: 2rem;
   font-size: 2rem;
-  background: #27292b;
+  background: #2c5c33;
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  color: #272828;
+  color: #ffffff;
   text-align: center;
   -webkit-transition: .2s linear;
   transition: .2s linear;
@@ -113,7 +113,7 @@ section {
 }
 
 .navbar a:hover {
-  background: #3b3d3c;
+  background: #455a4f;
   padding-bottom: 6rem;
 }
 
