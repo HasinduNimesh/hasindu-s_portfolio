@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>contact</title>
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<!-- navbar section starts  -->
+<nav class="navbar">
+    <a href="index.html"> <i class="fas fa-home"></i> <span>home</span> </a>
+    <a href="about.html"> <i class="fas fa-user"></i> <span>about</span> </a>
+    <a href="myworks.html"> <i class="fas fa-briefcase"></i> <span>portfolio</span> </a>
+    <a href="contact.html"> <i class="fas fa-address-book"></i> <span>contact</span> </a>
+</nav>
+<!-- navbar section ends -->
+
+<!-- contact section starts  -->
+<section class="contact">
+<h1 class="heading"> contact <span>me</span> </h1>
+<div class="row">
+    <div class="info-container">
+        <h1>get in touch</h1>
+        <div class="box-container">
+            <div class="box">
+                <i class="fas fa-map"></i>
+                <div class="info">
+                    <h3>address :</h3>
+                    <p>Kahathuduwa</p>
+                </div>
+            </div>
+            <div class="box">
+                <i class="fas fa-envelope"></i>
+                <div class="info">
+                    <h3>email :</h3>
+                    <p>hasindunimesh89@gmail.com</p>
+                </div>
+            </div>
+            <div class="box">
+                <i class="fas fa-phone"></i>
+                <div class="info">
+                    <h3>number :</h3>
+                    <p>+94 71 43 533 55</p>
+                </div>
+            </div>
+        </div>
+        <div class="share">
+            <a href="https://www.facebook.com/hasindu.nimesh.94?mibextid=LQQJ4d" class="fab fa-facebook-f"></a>
+            <a href="https://www.instagram.com/hasindu_nimesh/?hl=en" class="fab fa-instagram"></a>
+            <a href="https://www.linkedin.com/in/hasindu-nimesh-6457521b6/" class="fab fa-linkedin"></a>
+        </div>
+    </div>
+    <form onsubmit="sendEmail(); return false;">
+        <div class="inputBox">
+            <input type="text" id="name" placeholder="Your Name">
+            <input type="number" id="number" placeholder="Your Number">
+        </div>
+        <div class="inputBox">
+            <input type="email" id="email" placeholder="Your Email">
+            <input type="text" id="subject" placeholder="Your Subject">
+        </div>
+        <textarea name="message" id="message" placeholder="Your Message" cols="30" rows="10"></textarea>
+        <input type="submit" value="Send Message" class="btn">
+    </form>
+
+</div>
+
+</section>
+<script src="https://smtpjs.com/v3/smtp.js"></script>
+<script>
+    function sendEmail() {
+        Email.send({
+            SecureToken: "555f0de3-da95-4b4e-b33e-1a40aa477885",
+            To: 'hasindunimesh89@gmail.com',
+            From: document.getElementById("email").value,
+            Subject: "New Contact from Portfolio",
+            Body: "Name: " + document.getElementById("name").value + "<br>" +
+                  "Email: " + document.getElementById("email").value + "<br>" +
+                  "Subject: " + document.getElementById("subject").value + "<br>" +
+                  "Message: " + document.getElementById("message").value
+        }).then(
+            message => alert(message)
+        );
+    }
+</script>
+</body>
+</html>
