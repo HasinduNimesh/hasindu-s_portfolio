@@ -624,6 +624,17 @@ section {
   position: relative;
   color: #fff;
   text-align: center;
+  font-size: 1.7rem;
+}
+
+.modal-content .btn {
+  padding: 1rem 3rem;
+  background: #1a5c31;
+  color: #05f2f2;
+  border-radius: 5rem;
+  font-size: 3rem;
+  transition: background 0.3s ease;
+  text-decoration: none;
 }
 
 .modal-content h2 {
@@ -640,21 +651,13 @@ section {
 }
 
 .modal-content p {
-  font-size: 1.6rem;
+  font-size: 2rem;
   line-height: 2;
   color: #aaa;
   margin-bottom: 2rem;
 }
 
-.modal-content .btn {
-  padding: 1rem 3rem;
-  background: #1a5c31;
-  color: #05f2f2;
-  border-radius: 5rem;
-  font-size: 1.7rem;
-  transition: background 0.3s ease;
-  text-decoration: none;
-}
+
 
 .modal-content .btn:hover {
   background: #376e3c;
@@ -677,4 +680,8 @@ section {
   color: #c27c41;
   text-decoration: none;
   cursor: pointer;
+}
+
+.emoji {
+  font-size: 1.2em;
 }

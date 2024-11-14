@@ -5,30 +5,78 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hasindu Nimesh</title>
-    <!-- font awesome cdn link  -->
-    <link rel="icon" href="images/hasindu.png" type="image/x-icon">
+    <!-- Font Awesome CDN Link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <!-- custom css file link  -->
+    <!-- Custom CSS File Link -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-   
-<!-- navbar section starts  -->
+
+<!-- Navbar Section Starts -->
 <nav class="navbar">
     <a href="index.html"> <i class="fas fa-home"></i> <span>home</span> </a>
     <a href="about.html"> <i class="fas fa-user"></i> <span>about</span> </a>
     <a href="myworks.html"> <i class="fas fa-briefcase"></i> <span>portfolio</span> </a>
     <a href="contact.html"> <i class="fas fa-address-book"></i> <span>contact</span> </a>
 </nav>
-<!-- navbar section ends -->
+<!-- Navbar Section Ends -->
 
-<!-- portfolio section starts  -->
-
+<!-- Portfolio Section Starts -->
 <section class="portfolio">
     <h1 class="heading"> <span>my</span> work </h1>
     <div class="box-container">
-        <!-- Portfolio Item 1 -->
-        <div class="box" onclick="openModal('modal1')">
+        <!-- Example Portfolio Item 1 -->
+        <div class="box" onclick="openModal(this)" data-modal="modal1">
+            <img src="images/Kyoor.png" alt="Kyoor AI">
+            <div class="content">
+                <h3>Kyoor ChatBot</h3>
+                <p>This is chatbot to developed for skin cancer identification.</p>
+                <a href="https://github.com/HasinduNimesh/KYOOR-chatBot/tree/main/ChatBot" target="_blank">read more</a>
+            </div>
+        </div>
+
+        <!-- Modal for Portfolio Item 1 -->
+        <div id="modal1" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal1')">&times;</span>
+                <h2>HaNiV Photography</h2>
+                <img src="images/Kyoor.png" alt="HaNiV Photography" class="modal-image">
+                <p>The KYOOR ChatBot is designed to provide interactive conversational experiences, leveraging natural language processing techniques. The repository includes the main chatbot application, along with related resources and documentation.</p>
+                <a href="https://github.com/HasinduNimesh/KYOOR-chatBot/tree/main/ChatBot" target="_blank" class="btn">Visit Website</a>
+            </div>
+        </div>
+         
+        <!-- Portfolio Item for EasyReNamer -->
+        <div class="box" onclick="openModal(this)" data-modal="easyrenamerModal">
+            <img src="images/EasyReNamer.png" alt="EasyReNamer">
+            <div class="content">
+                <h3>EasyReNamer</h3>
+                <p>Your smart solution for effortless file renaming.</p>
+                <a href="https://github.com/HasinduNimesh/EasyReNamer" target="_blank">Learn More</a>
+            </div>
+        </div>
+
+        <!-- Modal for EasyReNamer -->
+        <div id="easyrenamerModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('easyrenamerModal')">&times;</span>
+                <h2>EasyReNamer: A Smart File Renaming Tool</h2>
+                <img src="images/EasyReNamer.png" alt="EasyReNamer Screenshot" class="modal-image">
+                <p>EasyReNamer is your ultimate companion for organizing and renaming files effortlessly. Whether you're sorting photos, managing documents, or handling large batches of files, EasyReNamer saves you time and enhances productivity with its user-friendly interface and powerful features.</p>
+                <ul>
+                    <li><strong>Batch File Renaming:</strong> Rename multiple files in a single operation using custom patterns.</li>
+                    <li><strong>File Sorting:</strong> Sort files by creation time, size, or default sequence for better organization.</li>
+                    <li><strong>Custom File Extensions & Names:</strong> Change file extensions or rename files with a consistent base name and numbering.</li>
+                    <li><strong>Light/Dark Mode:</strong> Toggle between light and dark themes with a visually appealing switch.</li>
+                    <li><strong>Real-Time Preview:</strong> See how your files will look before applying any changes.</li>
+                    <li><strong>Modern UI:</strong> Built with a sleek, responsive design powered by ttkbootstrap.</li>
+                </ul>
+                <a href="https://github.com/HasinduNimesh/EasyReNamer" target="_blank" class="btn">Visit</a>
+            </div>
+        </div>
+
+        <!-- Example Portfolio Item 1 -->
+        <div class="box" onclick="openModal(this)" data-modal="modal1">
             <img src="images/LASTLOGO.jpg" alt="HaNiV Photography">
             <div class="content">
                 <h3>HaNiV Photography</h3>
@@ -48,12 +96,13 @@
             </div>
         </div>
 
-        <!-- Portfolio Item 2 -->
-        <div class="box" onclick="openModal('modal2')">
+        <!-- Example Portfolio Item 2 -->
+        <div class="box" onclick="openModal(this)" data-modal="modal2">
             <img src="images/elevator.jpg" alt="Elevator Development Project">
             <div class="content">
                 <h3>Elevator Development Project</h3>
                 <p>Successfully completed hardware project.</p>
+                <a href="https://github.com/HasinduNimesh/Developed_Elevator_System" target="_blank">Show More</a>
             </div>
         </div>
 
@@ -63,96 +112,96 @@
                 <span class="close" onclick="closeModal('modal2')">&times;</span>
                 <h2>Elevator Development Project</h2>
                 <img src="images/elevator.jpg" alt="Elevator Development Project" class="modal-image">
-                <p>Detailed description about the Elevator Development Project, including objectives, technologies used, and outcomes.</p>
+                <p> <h1>Elevator Controller <span class="emoji">🏢🔌</span></h1>
+                    <h2>Description</h2>
+                    <p>This Arduino project implements an autonomous elevator control system using various sensors and actuators. The system is designed to safely transport passengers between floors, responding to user inputs and environmental conditions.</p>
+                    
+                    <h2>Features</h2>
+                    <ul>
+                        <li><strong>User-friendly Interface:</strong> Control buttons and voice recognition for floor selection.</li>
+                        <li><strong>Safety Measures:</strong> Emergency button and LED indicator for quick response.</li>
+                        <li><strong>Obstacle Detection:</strong> Ultrasonic sensor to detect obstacles in the elevator's path.</li>
+                        <li><strong>Fire Detection:</strong> Smoke sensor to detect smoke or fire in the elevator.</li>
+                        <li><strong>Weight Measurement:</strong> HX711 load cell for measuring the weight of passengers.</li>
+                        <li><strong>Status Display:</strong> Adafruit SSD1306 OLED display for displaying elevator status and weight.</li>
+                    </ul>
+                    
+                    <h2>Components</h2>
+                    <ul>
+                        <li>Arduino board</li>
+                        <li>HX711 load cell amplifier</li>
+                        <li>Adafruit SSD1306 OLED display</li>
+                        <li>Ultrasonic sensor (HC-SR04)</li>
+                        <li>Smoke sensor</li>
+                        <li>SIM900A GSM module for SMS alerts</li>
+                        <li>Motor driver for elevator motor control</li>
+                    </ul>
+                    
+                    <h2>Usage</h2>
+                    <ol>
+                        <li><strong>Setup:</strong> Connect the components according to the wiring diagram.</li>
+                        <li><strong>Installation:</strong> Upload the code to your Arduino board.</li>
+                        <li><strong>Testing:</strong> Power on the system and test the functionality.</li>
+                        <li><strong>Operation:</strong> Use the control buttons or voice commands to operate the elevator.</li>
+                        <li><strong>Emergency:</strong> In case of emergency, press the emergency button to notify authorities via SMS.</li>
+                    </ol>
+                    
+                    <h2>Notes</h2>
+                    <ul>
+                        <li>Ensure proper calibration of the load cell for accurate weight measurement.</li>
+                        <li>Test the system thoroughly before deploying it in a real-world scenario.</li>
+                        <li>Follow safety precautions when working with electrical components.</li>
+                    </ul>
+                    </p>
             </div>
         </div>
 
-        <!-- Portfolio Item 3 -->
-        <div class="box" onclick="openModal('modal3')">
-            <img src="images/geekweb.png" alt="Chess">
-            <div class="content">
-                <h3>Chess</h3>
-                <p>Other web pages I've owned</p>
-                <a href="https://hasindugeek.weebly.com" target="_blank">read more</a>
-            </div>
-        </div>
-
-        <!-- Modal for Portfolio Item 3 -->
-        <div id="modal3" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closeModal('modal3')">&times;</span>
-                <h2>Chess</h2>
-                <img src="images/geekweb.png" alt="Chess" class="modal-image">
-                <p>Detailed description about the Chess project, including features, technologies used, and what makes it unique.</p>
-                <a href="https://hasindugeek.weebly.com" target="_blank" class="btn">Visit Website</a>
-            </div>
-        </div>
-
-        <!-- Portfolio Item 4 -->
-        <div class="box" onclick="openModal('modal4')">
-            <img src="images/webscraper.png" alt="Web Scraping Projects">
-            <div class="content">
-                <h3>Web scraping projects</h3>
-                <p>I'm really into projects like these</p>
-            </div>
-        </div>
-
-        <!-- Modal for Portfolio Item 4 -->
-        <div id="modal4" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closeModal('modal4')">&times;</span>
-                <h2>Web Scraping Projects</h2>
-                <img src="images/webscraper.png" alt="Web Scraping Projects" class="modal-image">
-                <p>Detailed description about your web scraping projects, including tools used, challenges faced, and achievements.</p>
-            </div>
-        </div>
-
-        
     </div>
     <a href="#" class="btn"> load more <i class="fas fa-redo"></i> </a> 
 </section>
-<!-- portfolio section ends -->
+<!-- Portfolio Section Ends -->
 
 <!-- JavaScript for Modal Functionality -->
 <script>
     // Function to open modal
-    function openModal(modalId) {
-        var modal = document.getElementById(modalId);
-        if(modal){
-            modal.style.display = "block";
-            document.body.style.overflow = "hidden"; // Prevent background scrolling
+    function openModal(element) {
+        const modalId = element.getAttribute('data-modal');
+        const modal = document.getElementById(modalId);
+        if (modal) {
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
         }
     }
 
     // Function to close modal
     function closeModal(modalId) {
-        var modal = document.getElementById(modalId);
-        if(modal){
-            modal.style.display = "none";
-            document.body.style.overflow = "auto"; // Restore background scrolling
+        const modal = document.getElementById(modalId);
+        if (modal) {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Restore background scrolling
         }
     }
 
-    // Close modal when clicking outside of the modal content
+    // Close modal when clicking outside the modal content
     window.onclick = function(event) {
-        var modals = document.getElementsByClassName('modal');
-        for(var i = 0; i < modals.length; i++) {
-            var modal = modals[i];
-            if (event.target == modal) {
-                modal.style.display = "none";
-                document.body.style.overflow = "auto";
+        const modals = document.getElementsByClassName('modal');
+        for (let i = 0; i < modals.length; i++) {
+            const modal = modals[i];
+            if (event.target === modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
             }
         }
-    }
+    };
 
     // Close modal on Esc key press
     document.addEventListener('keydown', function(event) {
-        if(event.key === "Escape"){
-            var modals = document.getElementsByClassName('modal');
-            for(var i = 0; i < modals.length; i++) {
-                modals[i].style.display = "none";
+        if (event.key === 'Escape') {
+            const modals = document.getElementsByClassName('modal');
+            for (let i = 0; i < modals.length; i++) {
+                modals[i].style.display = 'none';
             }
-            document.body.style.overflow = "auto";
+            document.body.style.overflow = 'auto';
         }
     });
 </script>
