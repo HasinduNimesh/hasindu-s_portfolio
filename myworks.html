@@ -27,38 +27,133 @@
 <section class="portfolio">
     <h1 class="heading"> <span>my</span> work </h1>
     <div class="box-container">
-        <div class="box">
-            <img src="images/LASTLOGO.jpg" alt="missing image">
+        <!-- Portfolio Item 1 -->
+        <div class="box" onclick="openModal('modal1')">
+            <img src="images/LASTLOGO.jpg" alt="HaNiV Photography">
             <div class="content">
                 <h3>HaNiV Photography</h3>
                 <p>Here's my web page</p>
-                <a href="https://haniv-photography.business.site/">read more</a>
+                <a href="https://haniv-photography.business.site/" target="_blank">read more</a>
             </div>
         </div>
-        <div class="box">
-            <img src="images/elevator.jpg" alt="missing image">
+
+        <!-- Modal for Portfolio Item 1 -->
+        <div id="modal1" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal1')">&times;</span>
+                <h2>HaNiV Photography</h2>
+                <img src="images/LASTLOGO.jpg" alt="HaNiV Photography" class="modal-image">
+                <p>Detailed description about HaNiV Photography project.</p>
+                <a href="https://haniv-photography.business.site/" target="_blank" class="btn">Visit Website</a>
+            </div>
+        </div>
+
+        <!-- Portfolio Item 2 -->
+        <div class="box" onclick="openModal('modal2')">
+            <img src="images/elevator.jpg" alt="Elevator Development Project">
             <div class="content">
                 <h3>Elevator Development Project</h3>
                 <p>Successfully completed hardware project.</p>
             </div>
         </div>
-        <div class="box">
-            <img src="images/geekweb.png" alt="missing image">
-            <div class="content">
-                <h3>Chess</h3>
-                <p>Other weeb pages I've owneed</p>
-                <a href="https://hasindugeek.weebly.com">read more</a>
+
+        <!-- Modal for Portfolio Item 2 -->
+        <div id="modal2" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal2')">&times;</span>
+                <h2>Elevator Development Project</h2>
+                <img src="images/elevator.jpg" alt="Elevator Development Project" class="modal-image">
+                <p>Detailed description about the Elevator Development Project, including objectives, technologies used, and outcomes.</p>
             </div>
         </div>
-        <div class="box">
-            <img src="images/webscraper.png" alt="missing image">
+
+        <!-- Portfolio Item 3 -->
+        <div class="box" onclick="openModal('modal3')">
+            <img src="images/geekweb.png" alt="Chess">
+            <div class="content">
+                <h3>Chess</h3>
+                <p>Other web pages I've owned</p>
+                <a href="https://hasindugeek.weebly.com" target="_blank">read more</a>
+            </div>
+        </div>
+
+        <!-- Modal for Portfolio Item 3 -->
+        <div id="modal3" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal3')">&times;</span>
+                <h2>Chess</h2>
+                <img src="images/geekweb.png" alt="Chess" class="modal-image">
+                <p>Detailed description about the Chess project, including features, technologies used, and what makes it unique.</p>
+                <a href="https://hasindugeek.weebly.com" target="_blank" class="btn">Visit Website</a>
+            </div>
+        </div>
+
+        <!-- Portfolio Item 4 -->
+        <div class="box" onclick="openModal('modal4')">
+            <img src="images/webscraper.png" alt="Web Scraping Projects">
             <div class="content">
                 <h3>Web scraping projects</h3>
-                <p>I'm really into project like these</p>
+                <p>I'm really into projects like these</p>
+            </div>
+        </div>
+
+        <!-- Modal for Portfolio Item 4 -->
+        <div id="modal4" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal4')">&times;</span>
+                <h2>Web Scraping Projects</h2>
+                <img src="images/webscraper.png" alt="Web Scraping Projects" class="modal-image">
+                <p>Detailed description about your web scraping projects, including tools used, challenges faced, and achievements.</p>
             </div>
         </div>
     </div>
     <a href="#" class="btn"> load more <i class="fas fa-redo"></i> </a> 
 </section>
+<!-- portfolio section ends -->
+
+<!-- JavaScript for Modal Functionality -->
+<script>
+    // Function to open modal
+    function openModal(modalId) {
+        var modal = document.getElementById(modalId);
+        if(modal){
+            modal.style.display = "block";
+            document.body.style.overflow = "hidden"; // Prevent background scrolling
+        }
+    }
+
+    // Function to close modal
+    function closeModal(modalId) {
+        var modal = document.getElementById(modalId);
+        if(modal){
+            modal.style.display = "none";
+            document.body.style.overflow = "auto"; // Restore background scrolling
+        }
+    }
+
+    // Close modal when clicking outside of the modal content
+    window.onclick = function(event) {
+        var modals = document.getElementsByClassName('modal');
+        for(var i = 0; i < modals.length; i++) {
+            var modal = modals[i];
+            if (event.target == modal) {
+                modal.style.display = "none";
+                document.body.style.overflow = "auto";
+            }
+        }
+    }
+
+    // Close modal on Esc key press
+    document.addEventListener('keydown', function(event) {
+        if(event.key === "Escape"){
+            var modals = document.getElementsByClassName('modal');
+            for(var i = 0; i < modals.length; i++) {
+                modals[i].style.display = "none";
+            }
+            document.body.style.overflow = "auto";
+        }
+    });
+</script>
+
 </body>
 </html>
