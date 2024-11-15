@@ -685,3 +685,54 @@ section {
 .emoji {
   font-size: 1.2em;
 }
+
+/* Visit Counter Styles */
+#visit-counter {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  background-color: #333; /* Background color */
+  color: #fff;            /* Text color */
+  padding: 10px 20px;
+  border-radius: 8px 0 0 8px;
+  box-shadow: -2px 2px 5px rgba(0,0,0,0.3);
+  font-family: Arial, sans-serif;
+  text-align: center;
+  z-index: 1000;         /* Ensure it stays on top */
+  transition: background-color 0.3s ease;
+}
+
+#visit-counter:hover {
+  background-color: #555; /* Darker background on hover */
+}
+
+#visit-counter span {
+  font-weight: bold;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  #visit-counter {
+    padding: 8px 16px;
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 450px) {
+  #visit-counter {
+    padding: 6px 12px;
+    font-size: 1.2rem;
+  }
+}
+
+#visit-count {
+  font-weight: bold;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+#visit-count.visible {
+  opacity: 1;
+}
+

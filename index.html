@@ -1,38 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Existing head content -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hasindu Nimesh</title>
     <link rel="icon" href="images/hasindu.png" type="image/x-icon">
-    <!-- font awesome cdn link  -->
+    <!-- Font Awesome CDN link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <!-- custom css file link  -->
+    <!-- Custom CSS file link -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     
-<!-- navbar section starts  -->
-<nav class="navbar">
-    <a href="index.html"> <i class="fas fa-home"></i> <span>home</span> </a>
-    <a href="about.html"> <i class="fas fa-user"></i> <span>about</span> </a>
-    <a href="myworks.html"> <i class="fas fa-briefcase"></i> <span>portfolio</span> </a>
-    <a href="contact.html"> <i class="fas fa-address-book"></i> <span>contact</span> </a>
-</nav>
-<!-- navbar section ends -->
-<!-- home section starts  -->
-<section class="home">
-    <div class="image">
-        <img src="images/user.jpg" alt="">
+    <!-- Navbar Section Starts -->
+    <nav class="navbar">
+        <a href="index.html"> <i class="fas fa-home"></i> <span>Home</span> </a>
+        <a href="about.html"> <i class="fas fa-user"></i> <span>About</span> </a>
+        <a href="myworks.html"> <i class="fas fa-briefcase"></i> <span>Portfolio</span> </a>
+        <a href="contact.html"> <i class="fas fa-address-book"></i> <span>Contact</span> </a>
+    </nav>
+    <!-- Navbar Section Ends -->
+    
+    <!-- Home Section Starts -->
+    <section class="home">
+        <div class="image">
+            <img src="images/user.jpg" alt="User Image">
+        </div>
+        <div class="content">
+            <h3>Hi, I am Hasindu Nimesh</h3>
+            <span>Software Developer</span>
+            <p>
+                I am an undergraduate computer science student at General Sir John Kotelawala Defence University with a deep enthusiasm for software development, especially in the areas of image processing and voice recognition. My work demonstrates a balance of technical skill and creative flair, with a portfolio that includes user-friendly applications, automated systems, and interactive tools. I have experience developing applications in Java and Arduino, building intuitive interfaces and integrating advanced safety features. Additionally, I have worked on web-based solutions to streamline information delivery and foster user engagement. My projects highlight a commitment to merging technical innovation with usability, reflecting a versatile skill set that encompasses everything from backend automation to front-end user interaction. Driven to push the boundaries of technology, I am eager to continue creating solutions that blend functionality with impact.
+            </p>
+            <a href="about.html" class="btn"> About Me <i class="fas fa-user"></i> </a>
+        </div>
+    </section>
+    <!-- Home Section Ends -->
+    
+    <!-- Visit Counter -->
+    <div id="visit-counter">
+      Visits: <span id="visit-count">Loading...</span>
     </div>
-    <div class="content">
-        <h3>hi, i am Hasindu Nimesh</h3>
-        <span>Software developer</span>
-        <p>I am an undergraduate computer science student at General Sir John Kotelawala Defence University with a deep enthusiasm for software development, especially in the areas of image processing and voice recognition. My work demonstrates a balance of technical skill and creative flair, with a portfolio that includes user-friendly applications, automated systems, and interactive tools. I have experience developing applications in Java and Arduino, building intuitive interfaces and integrating advanced safety features. Additionally, I have worked on web-based solutions to streamline information delivery and foster user engagement. My projects highlight a commitment to merging technical innovation with usability, reflecting a versatile skill set that encompasses everything from backend automation to front-end user interaction. Driven to push the boundaries of technology, I am eager to continue creating solutions that blend functionality with impact.</p>
-        <a href="about.html" class="btn"> about me <i class="fas fa-user"></i> </a>
-    </div>
-</section>
-<!-- home section ends -->
+    
+    <!-- CountAPI Script -->
+    <script>
+      // Replace with your unique namespace and key
+      const namespace = 'hasindu-portfolio';
+      const key = 'visit-counter';
+    
+      // Function to fetch and update the visit count
+      function updateVisitCount() {
+        fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`)
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Network response was not ok');
+            }
+            return response.json();
+          })
+          .then(data => {
+            const visitCountElement = document.getElementById('visit-count');
+            visitCountElement.innerText = data.value;
+            visitCountElement.classList.add('visible'); // Make the count visible
+          })
+          .catch(error => {
+            console.error('Error fetching visit count:', error);
+            const visitCountElement = document.getElementById('visit-count');
+            visitCountElement.innerText = 'N/A';
+            visitCountElement.classList.add('visible'); // Ensure visibility even on error
+          });
+      }
+    
+      // Call the function when the page loads
+      document.addEventListener('DOMContentLoaded', updateVisitCount);
+    </script>
 </body>
 </html>
