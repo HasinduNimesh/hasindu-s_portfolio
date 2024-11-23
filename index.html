@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Existing head content -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +12,7 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    
+
     <!-- Navbar Section Starts -->
     <nav class="navbar">
         <a href="index.html"> <i class="fas fa-home"></i> <span>Home</span> </a>
@@ -22,7 +21,7 @@
         <a href="contact.html"> <i class="fas fa-address-book"></i> <span>Contact</span> </a>
     </nav>
     <!-- Navbar Section Ends -->
-    
+
     <!-- Home Section Starts -->
     <section class="home">
         <div class="image">
@@ -38,19 +37,19 @@
         </div>
     </section>
     <!-- Home Section Ends -->
-    
+
     <!-- Visit Counter -->
     <div id="visit-counter">
       Visits: <span id="visit-count">Loading...</span>
     </div>
-    
+
     <!-- Firebase and Visit Counter Script -->
     <script type="module">
       // Import Firebase modules
       import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
       import { getFirestore, doc, getDoc, setDoc, updateDoc, increment } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js";
 
-      // Your web app's Firebase configuration
+      // Firebase configuration
       const firebaseConfig = {
         apiKey: "AIzaSyAaQsH9kGJRHU9CNftB1Py0KCzmsWXtzkI",
         authDomain: "myportfolio-8226d.firebaseapp.com",
@@ -71,32 +70,39 @@
       // Function to update and display visit count
       async function updateVisitCount() {
         try {
+          console.log("Fetching document...");
           const docSnap = await getDoc(visitDocRef);
           
+          // Check if the document exists and update or create
           if (docSnap.exists()) {
-            // Increment the count
-            await updateDoc(visitDocRef, {
-              count: increment(1)
-            });
+            console.log("Document exists, updating...");
+            await updateDoc(visitDocRef, { count: increment(1) });
           } else {
-            // If the document doesn't exist, create it with count = 1
+            console.log("Document does not exist, creating...");
             await setDoc(visitDocRef, { count: 1 });
           }
 
-          // Fetch the updated count
+          // Fetch the updated document
           const updatedDoc = await getDoc(visitDocRef);
-          const count = updatedDoc.data().count;
+          console.log("Updated document:", updatedDoc.data());
 
-          // Display the count
-          document.getElementById('visit-count').innerText = count;
+          // Update the visit count on the web page
+          const visitCountElement = document.getElementById("visit-count");
+          if (visitCountElement) {
+            visitCountElement.innerText = updatedDoc.data().count;
+            console.log("Visit count updated on the page:", updatedDoc.data().count);
+          } else {
+            console.error("Element with id 'visit-count' not found.");
+          }
         } catch (error) {
-          console.error('Error updating visit count:', error);
-          document.getElementById('visit-count').innerText = 'N/A';
+          console.error("Error updating visit count:", error);
+          document.getElementById("visit-count").innerText = "N/A";
         }
       }
 
       // Call the function when the page loads
       document.addEventListener('DOMContentLoaded', updateVisitCount);
     </script>
+
 </body>
 </html>

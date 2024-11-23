@@ -709,6 +709,7 @@ section {
 
 #visit-counter span {
   font-weight: bold;
+  color: #fff; /* Ensure text color is white */
 }
 
 /* Responsive Adjustments */
@@ -728,8 +729,9 @@ section {
 
 #visit-count {
   font-weight: bold;
-  opacity: 0;
+  opacity: 1;
   transition: opacity 0.5s ease-in-out;
+  color: #fff; /* Ensure text color is white */
 }
 
 #visit-count.visible {
