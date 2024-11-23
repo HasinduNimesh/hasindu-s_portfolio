@@ -44,51 +44,57 @@
       Visits: <span id="visit-count">Loading...</span>
     </div>
     
-    <!-- CountAPI Script with Fallback -->
-    <script>
-      // Replace with your unique namespace and key
-      const namespace = 'hasindunimesh.me';
-      const key = 'visit-counter';
-    
-      // Function to fetch and update the visit count
-      function updateVisitCount() {
-        // Primary fetch: Increment and get the count
-        fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`)
-          .then(response => {
-            if (!response.ok) {
-              throw new Error('Primary fetch failed');
-            }
-            return response.json();
-          })
-          .then(data => {
-            const visitCountElement = document.getElementById('visit-count');
-            visitCountElement.innerText = data.value;
-            visitCountElement.classList.add('visible'); // Make the count visible
-          })
-          .catch(error => {
-            console.error('Error fetching visit count (primary):', error);
-            // Fallback fetch: Get the current count without incrementing
-            fetch(`https://api.countapi.xyz/get/${namespace}/${key}`)
-              .then(response => {
-                if (!response.ok) {
-                  throw new Error('Fallback fetch failed');
-                }
-                return response.json();
-              })
-              .then(data => {
-                const visitCountElement = document.getElementById('visit-count');
-                visitCountElement.innerText = data.value || 'N/A';
-                visitCountElement.classList.add('visible'); // Make the count visible
-              })
-              .catch(innerError => {
-                console.error('Error fetching visit count (fallback):', innerError);
-                const visitCountElement = document.getElementById('visit-count');
-                visitCountElement.innerText = 'N/A';
-                visitCountElement.classList.add('visible'); // Ensure visibility even on error
-              });
-          });
+    <!-- Firebase and Visit Counter Script -->
+    <script type="module">
+      // Import Firebase modules
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
+      import { getFirestore, doc, getDoc, setDoc, updateDoc, increment } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js";
+
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyAaQsH9kGJRHU9CNftB1Py0KCzmsWXtzkI",
+        authDomain: "myportfolio-8226d.firebaseapp.com",
+        projectId: "myportfolio-8226d",
+        storageBucket: "myportfolio-8226d.firebasestorage.app",
+        messagingSenderId: "132422648830",
+        appId: "1:132422648830:web:7a7dbd0c7e86d5a46836af",
+        measurementId: "G-HYGNBXTTBE"
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app);
+
+      // Reference to the visit count document
+      const visitDocRef = doc(db, 'counters', 'visitCount');
+
+      // Function to update and display visit count
+      async function updateVisitCount() {
+        try {
+          const docSnap = await getDoc(visitDocRef);
+          
+          if (docSnap.exists()) {
+            // Increment the count
+            await updateDoc(visitDocRef, {
+              count: increment(1)
+            });
+          } else {
+            // If the document doesn't exist, create it with count = 1
+            await setDoc(visitDocRef, { count: 1 });
+          }
+
+          // Fetch the updated count
+          const updatedDoc = await getDoc(visitDocRef);
+          const count = updatedDoc.data().count;
+
+          // Display the count
+          document.getElementById('visit-count').innerText = count;
+        } catch (error) {
+          console.error('Error updating visit count:', error);
+          document.getElementById('visit-count').innerText = 'N/A';
+        }
       }
-    
+
       // Call the function when the page loads
       document.addEventListener('DOMContentLoaded', updateVisitCount);
     </script>
