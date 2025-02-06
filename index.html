@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <!-- Custom CSS file link -->
     <link rel="stylesheet" href="css/style.css">
+      <!-- Chatbot CSS file link -->
+  <link rel="stylesheet" href="css/chatbot.css">
 </head>
 <body>
 
@@ -41,6 +43,22 @@
     <!-- Visit Counter -->
     <div id="visit-counter">
       Visits: <span id="visit-count">Loading...</span>
+    </div>
+
+    <!-- Chatbot Popup Button -->
+    <button id="open-chatbot" class="chatbot-btn"><i class="fas fa-comments"></i></button>
+
+    <!-- Chatbot Modal -->
+    <div id="chatbot-modal" class="chatbot-modal">
+      <div class="chatbot-content">
+        <span class="chatbot-close">&times;</span>
+        <h2>Chat with Me</h2>
+        <div class="chatbot-messages"></div>
+        <div class="chatbot-input-area">
+          <input type="text" id="chatbot-input" placeholder="Type your message...">
+          <button id="chatbot-send">Send</button>
+        </div>
+      </div>
     </div>
 
     <!-- Firebase and Visit Counter Script -->
@@ -103,6 +121,9 @@
       // Call the function when the page loads
       document.addEventListener('DOMContentLoaded', updateVisitCount);
     </script>
+
+    <!-- Chatbot Script -->
+    <script src="js/chatbot.js"></script>
 
 </body>
 </html>
