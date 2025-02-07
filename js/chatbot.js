@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
       inputField.value = "";
       // Simulate bot response after a short delay
       setTimeout(() => {
-        appendMessage("Bot", "Hello, thanks for your message!");
+        appendMessage("Bot", "Under Development");
       }, 800);
     }
   
