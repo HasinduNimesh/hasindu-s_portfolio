@@ -75,7 +75,7 @@
                         <i class="fas fa-code-branch"></i>
                     </div>
                     <div class="stat-content">
-                        <span class="stat-number" id="total-commits">262</span>
+                        <span class="stat-number" id="total-commits">-</span>
                         <span class="stat-label">Commits (2025)</span>
                     </div>
                 </div>
@@ -180,6 +180,50 @@
 
     <!-- GitHub Activity Script -->
     <script src="js/github-activity.js"></script>
+
+    <!-- Backup GitHub Stats Script (immediate fallback) -->
+    <script>
+        // Immediate fallback to ensure stats show up
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Backup script: Setting immediate GitHub stats...');
+            
+            const stats = {
+                'total-repos': 33,
+                'total-stars': 6,
+                'total-commits': 261,
+                'total-followers': 8
+            };
+            
+            // Set values immediately
+            for (const [id, value] of Object.entries(stats)) {
+                const element = document.getElementById(id);
+                if (element) {
+                    element.textContent = value;
+                    console.log(`Backup: Set ${id} to ${value}`);
+                }
+            }
+            
+            // Try to animate after a short delay
+            setTimeout(() => {
+                for (const [id, value] of Object.entries(stats)) {
+                    const element = document.getElementById(id);
+                    if (element) {
+                        let count = 0;
+                        const increment = value / 50;
+                        const timer = setInterval(() => {
+                            count += increment;
+                            if (count >= value) {
+                                element.textContent = value;
+                                clearInterval(timer);
+                            } else {
+                                element.textContent = Math.floor(count);
+                            }
+                        }, 20);
+                    }
+                }
+            }, 1000);
+        });
+    </script>
 
 </body>
 </html>
