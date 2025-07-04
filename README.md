@@ -1,4 +1,4 @@
-# hasindu-s_portfolio
+# HasinduNimesh_portfolio
 # Front-end Development Portfolio
 
 This repository contains my front-end development portfolio.
@@ -13,4 +13,4 @@ This repository contains my front-end development portfolio.
 I'm a computer science undergraduate with a passion for software development, specializing in image processing and voice recognition. As a photographer, I bring a unique perspective to my work, blending technical expertise with creative flair to deliver impactful solutions.
 
 ## Contact
-You can visit my [portfolio website]([https://example.com](https://hasindunimesh.github.io/hasindu-s_portfolio/contact.html)).
+You can visit my [portfolio website]([https://example.com](https://hasindunimesh.github.io/HasinduNimesh_portfolio/contact.html)).

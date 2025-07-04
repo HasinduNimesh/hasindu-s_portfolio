@@ -7,7 +7,7 @@
     <title>Hasindu Nimesh</title>
     <!-- font awesome cdn link  -->
     <link rel="icon" href="images/hasindu.png" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- custom css file link  -->
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -95,6 +95,48 @@
 </section>
 
 <!-- skills section ends -->
+
+<!-- GitHub stats section starts -->
+<section class="github-stats" id="github-stats">
+    <h1 class="heading"> GitHub <span>Activity</span> </h1>
+    
+    <div class="stats-container">
+        <!-- GitHub Stats Cards -->
+        <div class="stats-row">
+            <div class="stat-card">
+                <img src="https://github-readme-stats.vercel.app/api?username=HasinduNimesh&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0a0a0a&title_color=00d4ff&icon_color=7c3aed&text_color=ffffff" alt="GitHub Stats" loading="lazy">
+            </div>
+            <div class="stat-card">
+                <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=HasinduNimesh&layout=compact&theme=tokyonight&hide_border=true&bg_color=0a0a0a&title_color=00d4ff&text_color=ffffff" alt="Most Used Languages" loading="lazy">
+            </div>
+        </div>
+        
+        <!-- GitHub Streak -->
+        <div class="streak-container">
+            <div class="stat-card">
+                <img src="https://github-readme-streak-stats.herokuapp.com/?user=HasinduNimesh&theme=tokyonight&hide_border=true&background=0a0a0a&stroke=00d4ff&ring=7c3aed&fire=00d4ff&currStreakLabel=ffffff" alt="GitHub Streak" loading="lazy">
+            </div>
+        </div>
+        
+        <!-- Contribution Graph -->
+        <div class="contribution-container">
+            <div class="stat-card">
+                <img src="https://github-readme-activity-graph.vercel.app/graph?username=HasinduNimesh&theme=tokyo-night&hide_border=true&bg_color=0a0a0a&color=00d4ff&line=7c3aed&point=ffffff" alt="Contribution Graph" loading="lazy">
+            </div>
+        </div>
+        
+        <!-- Recent Activity -->
+        <div class="activity-container">
+            <h2 class="activity-title">Recent GitHub Activity</h2>
+            <div id="github-activity" class="activity-list">
+                <!-- Activity will be loaded here via JavaScript -->
+                <div class="loading">Loading recent activity...</div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- GitHub stats section ends -->
+
 <section class="education">
     <h1 class="heading"> <span>my</span> resume </h1>
     <div class="box-container">
@@ -119,5 +161,9 @@
     </div>
 </section>
 <!-- education section ends -->
+
+<!-- GitHub Activity Script -->
+<script src="js/github-activity.js"></script>
+
 </body>
 </html>
