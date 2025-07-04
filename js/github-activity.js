@@ -339,9 +339,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const githubActivity = new GitHubActivity('HasinduNimesh');
     
     // Fetch user stats for homepage
-    if (document.getElementById('total-repos') || document.getElementById('homepage-activity')) {
+    if (document.getElementById('total-repos')) {
         githubActivity.fetchUserStats();
-        githubActivity.fetchRecentActivity();
     }
     
     // Only fetch activity if we're on the about page and the container exists
@@ -354,10 +353,9 @@ document.addEventListener('DOMContentLoaded', function() {
 setInterval(() => {
     const githubActivity = new GitHubActivity('HasinduNimesh');
     
-    // Update homepage stats and activity
-    if (document.getElementById('total-repos') || document.getElementById('homepage-activity')) {
+    // Update homepage stats
+    if (document.getElementById('total-repos')) {
         githubActivity.fetchUserStats();
-        githubActivity.fetchRecentActivity();
     }
     
     // Update about page activity
